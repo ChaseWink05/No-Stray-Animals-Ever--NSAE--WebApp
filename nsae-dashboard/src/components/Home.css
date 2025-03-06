@@ -1,0 +1,67 @@
+/* home.css */
+
+/* Basic styling for the whole page */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9; /* Light background */
+    color: #333; /* Dark text */
+  }
+  
+  /* Centered container for the content */
+  .home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+  }
+  
+  /* Welcome message */
+  h1 {
+    font-size: 2.5rem;
+    color: #2c3e50; /* Dark blue */
+    margin-bottom: 20px;
+  }
+  
+  /* Navigation menu */
+  nav {
+    margin-top: 20px;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    margin: 10px 0;
+  }
+  
+  /* Links styling */
+  a {
+    font-size: 1.2rem;
+    color: #2980b9; /* Blue */
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  /* Hover effect on links */
+  a:hover {
+    color: #1abc9c; /* Green */
+  }
+  
+  /* Add some padding and rounded borders to improve appearance */
+  ul li {
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #ecf0f1; /* Light grey background for the items */
+    transition: background-color 0.3s ease;
+  }
+  
+  ul li:hover {
+    background-color: #bdc3c7; /* Slightly darker grey on hover */
+  }
+  
