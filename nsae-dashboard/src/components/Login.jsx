@@ -1,34 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../styles/Login.css";
+import Dashboard from "./Dashboard";
 
 function Login() {
-    const [role, setRole] = React.useState("");
-    const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-    const handleLogin = () => {
-        switch (role.toLocaleLowerCase()) {
-            case "ceo":
-                navigate("/ceo");
-                break;
-            case "handler":
-                navigate("/handler");
-                break;
-            case "volunteer":
-                navigate("/volunteer");
-                break;
-            default:
-                alert("Invalid role!");
-            
-        }
-    };
+  const handleLogin = async () => {
+    const response = await fetch("/api/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    });
+    const data = await response.json();
+    if (response.ok) {
+      localStorage.setItem("token", data.token);
+      navigate("/dashboard");
+    } else {
+      alert("Login failed");
+    }
+  };
 
-    return (
-        <div>
-            <h1>Login</h1>
-            <input type="text" placeholder="Enter your role" onChange={(e) => setRole(e.target.value)} />
-            <button onClick={handleLogin}>Login</button>
-        </div>
-    );
+  return (
+    <div className="login-container">
+      <h2>Login</h2>
+      <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+      <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
+      <button onClick={handleLogin}>Login</button>
+      <button onClick={() => navigate("/signup")}>Sign Up</button>
+      <button onClick={() => Dashboard("/dashboard")}>Dashboard</button>
+    </div>
+  );
 }
 
 export default Login;
