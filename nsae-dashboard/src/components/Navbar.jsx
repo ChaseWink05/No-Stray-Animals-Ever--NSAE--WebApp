@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/Navbar.css";
+import logo from "../Images/Logo.jpg"; // Import the image
 
 function Navbar() {
   return (
@@ -16,7 +17,7 @@ function Navbar() {
         </li>
       </ul>
       <div className="navbar-logo">
-        <img src="/logo.png" alt="NSAE Logo" />
+        <img src={logo} alt="NSAE Logo" /> {/* Use the imported image */}
       </div>
       <ul className="navbar-links">
         <li><Link to="/">Home</Link></li>
