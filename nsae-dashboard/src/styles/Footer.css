@@ -20,3 +20,20 @@
   .footer a:hover {
     text-decoration: underline;
   }
+
+  .footer-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .footer-images img {
+    height: 150px;
+    margin: 0 10px;
+  }
+
+  .footer-images img:hover {
+    transform: scale(1.1);
+  }
+ 
