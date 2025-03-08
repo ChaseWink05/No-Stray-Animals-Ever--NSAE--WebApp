@@ -6,7 +6,6 @@ import "../styles/Home.css";
 function Home() {
   return (
     <div>
-      <Navbar />
       <div className="home-container">
         <h1>Welcome to No Stray Animals Ever (NSAE)</h1>
         <p>
