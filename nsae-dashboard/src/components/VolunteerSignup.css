@@ -29,7 +29,8 @@
   /* Input field styling */
   input[type="text"],
   input[type="email"],
-  input[type="file"],
+  input[type = "bio"],
+  input[type="file"]
   textarea {
     width: 100%;
     padding: 10px;
@@ -43,6 +44,7 @@
   input[type="text"]:focus,
   input[type="email"]:focus,
   input[type="file"]:focus,
+  input[type = "bio"]:focus
   textarea:focus {
     border-color: #2980b9;
     outline: none;

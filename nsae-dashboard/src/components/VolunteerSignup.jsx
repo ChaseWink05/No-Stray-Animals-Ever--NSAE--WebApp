@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import "./VolunteerSignup.css";
+import { Link } from "react-router-dom";
+
 
 function VolunteerSignup() {
   const [name, setName] = useState("");
   const [hobby, setHobby] = useState("");
   const [town, setTown] = useState("");
   const [image, setImage] = useState("");
-
+  const [bio, setBio] = useState("");
   const handleSignup = () => {
     const volunteerData = { name, hobby, town, image };
     localStorage.setItem("volunteer", JSON.stringify(volunteerData));
@@ -19,10 +21,17 @@ function VolunteerSignup() {
       <input type="text" placeholder="Full Name" onChange={(e) => setName(e.target.value)} />
       <input type="text" placeholder="Hobby" onChange={(e) => setHobby(e.target.value)} />
       <input type="text" placeholder="Town" onChange={(e) => setTown(e.target.value)} />
+      <input type = "bio" placeholder = "Bio" onChange = {(e) => setBio(e.target.value)} />
       <input type="file" onChange={(e) => setImage(URL.createObjectURL(e.target.files[0]))} />
+      
       <button onClick={handleSignup}>Sign Up</button>
+
+      <Link to="/Home">
+      <button>Back to Home Page </button>
+      </Link>
     </div>
   );
 }
+
 
 export default VolunteerSignup;
