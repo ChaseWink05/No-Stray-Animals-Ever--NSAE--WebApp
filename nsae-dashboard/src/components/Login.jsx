@@ -32,7 +32,7 @@ function Login() {
       <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
       <button onClick={handleLogin}>Login</button>
       <button onClick={() => navigate("/signup")}>Sign Up</button>
-      <button onClick={() => Dashboard("/dashboard")}>Dashboard</button>
+      <button onClick={() => navigate("/Home")}>Home </button>
     </div>
   );
 }

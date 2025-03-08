@@ -8,6 +8,7 @@ import Login from "./components/Login";
 import CEOPage from "./components/CEOPage";
 import HandlerPage from "./components/Handler";
 import Navbar from "./components/Navbar"; // Import the Navbar component
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -25,9 +26,11 @@ function App() {
           <Route path="/handler" element={<HandlerPage />} />
           <Route path="/VolunteerSignup" element={<VolunteerSignup />} />
         </Routes>
+        <Footer />
       </div>
     </Router>
   );
 }
+
 
 export default App;
