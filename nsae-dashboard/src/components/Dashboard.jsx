@@ -1,5 +1,5 @@
 import React from "react";
-import "./Dashboard.css"; // Import its specific CSS file
+import "../styles/Dashboard.css"; // Import its specific CSS file
 
 function Dashboard() {
   return (
