@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Login.css";
-  
+import supabase from "../utils/supabaseClient"; // Import Supabase client
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -15,13 +15,20 @@ function Login() {
     // Add more predefined credentials as needed
   };
 
-  const handleLogin = () => {
-    const user = Object.values(predefinedCredentials).find(
+  const handleLogin = async () => {
+    const { user, error } = await supabase.auth.signIn({ email, password });
+
+    if (error) {
+      alert("Login failed");
+      return;
+    }
+
+    const predefinedUser = Object.values(predefinedCredentials).find(
       (user) => user.email === email && user.password === password
     );
 
-    if (user) {
-      navigate(user.route);
+    if (predefinedUser) {
+      navigate(predefinedUser.route);
     } else {
       alert("Login failed");
     }
