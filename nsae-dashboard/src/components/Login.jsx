@@ -11,8 +11,11 @@ function Login() {
   const predefinedCredentials = {
     ceo: { email: "ceo@example.com", password: "ceopassword", route: "/ceo" },
     handler: { email: "handler@example.com", password: "handlerpassword", route: "/handler" },
-    Volunteers: { email: "volunteer@example.com", password: "123", route: "/volunteer" },
-    // Add more predefined credentials as needed
+    volunteers: { email: "volunteer@example.com", password: "123", route: "/volunteer" },
+    boardMembers: { email: "boardmember@example.com",password: "1233", route: "/boardMembers" },
+    hr : { email: "hr@example.com", password: "hrpassword", route: "/hr" },
+    caregivers : { email: "caregivers@example.com", password: "caregiverspassword", route: "/caregivers" },
+    headcaregivers : { email: "headcare@example.com", password: "headcarepassword", route: "/headcare" },
   };
 
   const handleLogin = () => {

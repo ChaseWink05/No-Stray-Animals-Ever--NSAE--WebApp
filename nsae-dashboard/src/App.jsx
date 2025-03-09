@@ -10,6 +10,11 @@ import HandlerPage from "./components/Handler";
 import Navbar from "./components/Navbar"; // Import the Navbar component
 import Footer from "./components/Footer";
 import Volunteers from "./components/Volunteers";
+import BoardMembers from "./components/BoardMembers";
+import Caregivers from "./components/Caregivers";
+import HeadCare from "./components/HeadCaregivers";
+import HR from "./components/HR";
+
 
 function App() {
   return (
@@ -27,6 +32,11 @@ function App() {
           <Route path="/handler" element={<HandlerPage />} />
           <Route path="/VolunteerSignup" element={<VolunteerSignup />} />
           <Route path= "/volunteer" element={<Volunteers />} />
+          <Route path= "/boardMembers" element={<BoardMembers />} />
+          <Route path= "/caregivers" element={<Caregivers />} />
+          <Route path= "/headcare" element={<HeadCare />} />
+          <Route path= "/hr" element={<HR />} />
+
         </Routes>
         <Footer />
       </div>
