@@ -24,7 +24,7 @@ function Navbar() {
         </Link>
       </div>
       <ul className="navbar-links">
-        <li><Link to="/VolunteerSignup">Volunteer Now!</Link></li>
+        <li><Link to="/Signup">Volunteer Now!</Link></li>
       </ul>
     </nav>
   );

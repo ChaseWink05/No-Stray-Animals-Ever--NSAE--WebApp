@@ -6,6 +6,7 @@ import supabase from "../utils/supabaseClient"; // Import Supabase client
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
   const predefinedCredentials = {
@@ -19,32 +20,38 @@ function Login() {
   };
 
   const handleLogin = async () => {
-    const { user, error } = await supabase.auth.signIn({ email, password });
-
-    if (error) {
-      alert("Login failed");
-      return;
-    }
-
+    // Check predefined credentials first
     const predefinedUser = Object.values(predefinedCredentials).find(
       (user) => user.email === email && user.password === password
     );
 
     if (predefinedUser) {
       navigate(predefinedUser.route);
-    } else {
-      alert("Login failed");
+      return;
     }
+
+    // If not a predefined user, try to log in with Supabase
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+
+    if (error) {
+      setMessage("Login failed: " + error.message);
+      return;
+    }
+
+    navigate("/volunteer"); // Navigate to the Volunteers page for non-predefined accounts
   };
 
   return (
     <div className="login-container">
-      <h2>Login</h2>
-      <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
-      <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
-      <button onClick={handleLogin}>Login</button>
-      <button onClick={() => navigate("/signup")}>Sign Up</button>
-      <button onClick={() => navigate("/Home")}>Home</button>
+      <div className="login-form">
+        <h2>Login</h2>
+        <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+        <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
+        <button onClick={handleLogin}>Login</button>
+        <button onClick={() => navigate("/signup")}>Sign Up</button>
+        <button onClick={() => navigate("/Home")}>Home</button>
+        {message && <p className="message">{message}</p>}
+      </div>
     </div>
   );
 }
