@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Login.css";
+  
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -10,6 +11,7 @@ function Login() {
   const predefinedCredentials = {
     ceo: { email: "ceo@example.com", password: "ceopassword", route: "/ceo" },
     handler: { email: "handler@example.com", password: "handlerpassword", route: "/handler" },
+    Volunteers: { email: "volunteer@example.com", password: "123", route: "/volunteer" },
     // Add more predefined credentials as needed
   };
 

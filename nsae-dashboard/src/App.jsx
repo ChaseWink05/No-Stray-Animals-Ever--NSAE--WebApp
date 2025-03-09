@@ -9,6 +9,7 @@ import CEOPage from "./components/CEOPage";
 import HandlerPage from "./components/Handler";
 import Navbar from "./components/Navbar"; // Import the Navbar component
 import Footer from "./components/Footer";
+import Volunteers from "./components/Volunteers";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/ceo" element={<CEOPage />} />
           <Route path="/handler" element={<HandlerPage />} />
           <Route path="/VolunteerSignup" element={<VolunteerSignup />} />
+          <Route path= "/volunteer" element={<Volunteers />} />
         </Routes>
         <Footer />
       </div>
